@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Flappy Bird"
+description = "A faithful, browser-playable recreation of the classic Flappy Bird arcade game, with pixel-art scenery, responsive controls, scoring, and retro audio."
+version = "1.0.0"
+id = "artifacts/flappy-bird"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24558
+
+[services.development]
+run = "pnpm --filter @workspace/flappy-bird run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/flappy-bird", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/flappy-bird/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24558"
+BASE_PATH = "/"
