@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "pnpm --filter @workspace/flappy-bird run build",
-  "outputDirectory": "artifacts/flappy-bird/dist/public",
+  "outputDirectory": "artifacts/flappy-bird/dist",
   "cleanUrls": true,
   "rewrites": [
     {
